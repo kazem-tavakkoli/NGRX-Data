@@ -2,7 +2,7 @@
     <div class="col-md-12">
        <h3>Posts List </h3> 
         <div>
-            <a href="#" class="btn btn-primary" [routerLink]="['/posts/add']">Add List</a>
+            <a href="#" class="btn btn-primary" [routerLink]="['/posts','add']">Add List</a>
         </div>
        <table class="table table-striped" *ngIf="(posts$ |async) as postsData">
            <thead>
@@ -20,7 +20,7 @@
                    <td>
                        <a class="btn btn-primary" [routerLink]="['edit',post.id]">Update</a>&nbsp;
                        <a class="btn btn-info" [routerLink]="['detail/',post.id]">Detail</a>&nbsp;
-                       <a class="btn btn-danger" (click)="delete(post.id)">Delete</a>
+                       <a class="btn btn-danger" (click)="delete($event,post.id)">Delete</a>
                    </td>
                </tr>
            </tbody>

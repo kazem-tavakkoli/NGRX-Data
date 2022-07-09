@@ -17,6 +17,7 @@ import { entityConfig } from './entity.metadata';
 import { HttpClientModule } from '@angular/common/http';
 import { PostDataService } from './posts/post.data.service';
 import { PostResolver } from './posts/post.resolver';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PostResolver } from './posts/post.resolver';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       logOnly:environment.production,
