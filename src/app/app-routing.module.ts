@@ -24,10 +24,12 @@ const routes: Routes = [
   {
     path: 'posts/edit/:id',
     component: EditPostComponent,
+    resolve: {posts: PostResolver},
   },
   {
-    path: 'posts/details/:id',
-    component: SinglePostComponent
+    path: 'posts/detail/:id',
+    component: SinglePostComponent,
+    resolve: {posts: PostResolver},
   }
 ];
 

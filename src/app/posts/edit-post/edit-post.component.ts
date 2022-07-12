@@ -25,11 +25,12 @@ export class EditPostComponent implements OnInit {
     });
     this.id = this.route.snapshot.params['id'];
     this.postService.entities$.subscribe((Posts) => {
+      if(Posts.length > 0){
       const post = Posts.find((q) => q.id == this.id);
       this.editPostForm.patchValue({
         title: post?.title,
         description: post?.description,
-      });
+      })}
     });
   }
 
