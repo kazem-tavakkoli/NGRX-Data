@@ -6,19 +6,24 @@ import { PostService } from '../post.service';
 @Component({
   selector: 'app-posts-list',
   templateUrl: './posts-list.component.html',
-  styleUrls: ['./posts-list.component.css']
+  styleUrls: ['./posts-list.component.css'],
 })
 export class PostsListComponent implements OnInit {
-
   posts$!: Observable<Post[]>;
-  constructor(private postService:PostService) { }
+  constructor(private postService: PostService) {}
 
   ngOnInit(): void {
-   this.posts$ = this.postService.entities$;
+    this.posts$ = this.postService.entities$;
   }
 
-  delete(event:Event,id?:string){
-
+  delete(event: Event, id?: string) {
+    event.preventDefault();
+    if (id) {
+      if (confirm('Are you sure you want to delete this post?')) {
+        if (id) {
+        }
+        this.postService.delete(id);
+      }
+    }
   }
-
 }
