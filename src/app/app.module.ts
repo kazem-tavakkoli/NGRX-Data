@@ -22,10 +22,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    PostsListComponent,
-    SinglePostComponent,
-    EditPostComponent,
-    AddPostComponent,
     HomeComponent
   ],
   imports: [
@@ -39,14 +35,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
     }),
     EffectsModule.forRoot([]),
-    EntityDataModule.forRoot(entityConfig),
+    EntityDataModule.forRoot({}),
   ],
-  providers: [PostDataService,PostResolver],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(entityDataService: EntityDataService,PostDataService:PostDataService) {
-    entityDataService.registerService('Post', PostDataService);
+  constructor() {
   }
 
  }
